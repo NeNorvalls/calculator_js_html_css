@@ -16,8 +16,9 @@ function clearDisplay() {
 
 function calculateResult() {
     try {
-        display.innerHTML = eval(display.innerHTML);
-        console.log('Result calculated:', display.innerHTML);
+        const result = eval(display.innerHTML);
+        display.innerHTML = result;
+        console.log('Result calculated:', result);
     } catch {
         display.innerHTML = 'Error';
         console.error('Error occurred during calculation');
