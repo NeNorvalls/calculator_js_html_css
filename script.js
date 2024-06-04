@@ -1,7 +1,19 @@
 let display = document.getElementById('display');
 
+
+document.addEventListener('keydown', function(event) {
+
+    if (event.key.match(/[0-9+\-*/.]/)) {
+        appendToDisplay(event.key);
+    } else if (event.key === 'Enter') {
+        calculateResult();
+    } else if (event.key === 'Escape') {
+        clearDisplay();
+    }
+});
+
 function appendToDisplay(value) {
-    if (display.innerHTML === '0') {
+    if (display.innerHTML === '0' || display.innerHTML === 'Error') {
         display.innerHTML = value;
     } else {
         display.innerHTML += value;
@@ -24,3 +36,4 @@ function calculateResult() {
         console.error('Error occurred during calculation');
     }
 }
+
